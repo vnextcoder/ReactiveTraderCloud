@@ -43,7 +43,7 @@ namespace Adaptive.ReactiveTrader.Server.Host
             };
 
             Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Information()
+                .MinimumLevel.Warning()
                 .WriteTo.ColoredConsole()
                 .CreateLogger();
 

@@ -12,9 +12,9 @@ namespace Adaptive.ReactiveTrader.Server.Launcher
         private readonly IServiceLauncher _launcher;
         private bool _running = true;
         private LauncherConfig _config;
-        
+
         private static readonly ConsoleLogger Log = new ConsoleLogger();
-        
+
         public Program(IServiceLauncher serviceLauncher)
         {
             _launcher = serviceLauncher;
@@ -38,7 +38,7 @@ namespace Adaptive.ReactiveTrader.Server.Launcher
             Log.Error(@"| |\ \  __/ (_| | (__| |_| |\ V /  __/   | | | | (_| | (_| |  __/ |   ");
             Log.Error(@"\_| \_\___|\__,_|\___|\__|_| \_/ \___|   \_/_|  \__,_|\__,_|\___|_|   ");
             Log.Error();
-            
+
             try
             {
                 Console.CancelKeyPress += (s, e) =>
@@ -48,7 +48,7 @@ namespace Adaptive.ReactiveTrader.Server.Launcher
                 };
 
                 Serilog.Log.Logger = new LoggerConfiguration()
-                    .MinimumLevel.Information()
+                    .MinimumLevel.Warning()
                     .WriteTo.ColoredConsole()
                     .CreateLogger();
 
@@ -109,7 +109,7 @@ namespace Adaptive.ReactiveTrader.Server.Launcher
                     catch (Exception e)
                     {
                         Log.Error("Error handling request " + e.Message);
-                        
+
                     }
                 }
             }
